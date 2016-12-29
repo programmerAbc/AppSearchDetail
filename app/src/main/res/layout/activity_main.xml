@@ -11,97 +11,110 @@
     <FrameLayout
         android:id="@+id/topFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:background="@android:color/white">
 
         <ImageView
             android:id="@+id/appCoverIv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             android:src="@drawable/appcover" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_gravity="bottom"
-            android:scaleType="fitXY"
-            android:src="@drawable/arc_bg" />
-
-        <ImageView
-            android:id="@+id/appLogo"
-            android:layout_width="80dp"
-            android:layout_height="70dp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:src="@drawable/applogo" />
-
-
         <LinearLayout
-            android:id="@+id/closeBar"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="top"
-            android:alpha="0"
-            android:background="@android:color/white"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="bottom"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/arc_bg" />
+
+                <ImageView
+                    android:id="@+id/appLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:src="@drawable/applogo" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/appNameTv"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="JAVA"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/briefBar"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="top|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="100万下载 20M" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="官方"
+                    android:textColor="@android:color/holo_green_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="安全"
+                    android:textColor="@android:color/holo_green_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="MTC认证"
+                    android:textColor="@android:color/holo_green_light" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
 
             <ImageButton
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:id="@+id/closeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
                 android:background="@android:color/transparent"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:src="@drawable/closebtn_bg" />
-        </LinearLayout>
+
 
     </FrameLayout>
 
-    <TextView
-        android:id="@+id/appNameTv"
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="JAVA"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/briefBar"
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="top|center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="100万下载 20M" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="官方"
-            android:textColor="@android:color/holo_green_light" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="安全"
-            android:textColor="@android:color/holo_green_light" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="MTC认证"
-            android:textColor="@android:color/holo_green_light" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/tabBar"
