@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 
@@ -27,6 +28,9 @@ public class AppDetailLayout extends LinearLayout {
     NestedScrollView nestedScrollView;
     int nestedScrollHeight;
     int topFrameLayoutMeasuredHeight=-1;
+    Scroller scroller;
+
+
 
     public AppDetailLayout(Context context) {
         super(context);
@@ -63,6 +67,17 @@ public class AppDetailLayout extends LinearLayout {
         brifBar=findViewById(R.id.briefBar);
         tabBar=findViewById(R.id.tabBar);
         nestedScrollView= (NestedScrollView) findViewById(R.id.nestedScrollView);
+        scroller=new Scroller(getContext());
+        scroller.startScroll(0,-getContext().getResources().getDisplayMetrics().heightPixels,0,getContext().getResources().getDisplayMetrics().heightPixels,900);
+        invalidate();
+    }
+
+    @Override
+    public void computeScroll() {
+        if(scroller.computeScrollOffset()){
+            scrollTo(0,scroller.getCurrY());
+            invalidate();
+        }
     }
 
     @Override
@@ -80,19 +95,12 @@ public class AppDetailLayout extends LinearLayout {
         appCoverIv.setAlpha(Math.max(0,Math.min(1-Math.abs(scrollFactor)*3,1)));
         if(scrollFactor<0){
             topFrameLayout.setBackgroundResource(android.R.color.transparent);
-            appCoverIv.setScaleX(1-scrollFactor);
-            appCoverIv.setScaleY(1-scrollFactor);
-            topFrameLayout.setTranslationY(y);
-            LinearLayout.LayoutParams topFrameLayoutLayoutParams= (LinearLayout.LayoutParams) topFrameLayout.getLayoutParams();
-            topFrameLayoutLayoutParams.height=topFrameLayoutMeasuredHeight-y;
-            topFrameLayout.requestLayout();
+            appCoverIv.setScaleX(1-scrollFactor*3);
+            appCoverIv.setScaleY(1-scrollFactor*3);
+            appCoverIv.setTranslationY(y);
         }else{
             topFrameLayout.setBackgroundResource(android.R.color.white);
-            topFrameLayout.setTranslationY(0);
-            LinearLayout.LayoutParams topFrameLayoutLayoutParams= (LinearLayout.LayoutParams) topFrameLayout.getLayoutParams();
-            topFrameLayoutLayoutParams.height=topFrameLayoutMeasuredHeight;
-            topFrameLayout.requestLayout();
-
+            appCoverIv.setTranslationY(0);
         }
 
 

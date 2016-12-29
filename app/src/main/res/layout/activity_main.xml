@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:clipChildren="false"
+    android:background="@android:color/transparent"
     tools:context="com.practice.MainActivity">
 
     <FrameLayout
@@ -161,7 +163,12 @@
             android:textColor="@android:color/black"
             android:textSize="20sp" />
     </LinearLayout>
-
+<LinearLayout
+    android:clipChildren="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:background="@android:color/white"
@@ -351,6 +358,8 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+
 
 
 </com.practice.AppDetailLayout>
