@@ -9,6 +9,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
@@ -33,6 +34,7 @@ public class AppDetailLayout extends LinearLayout implements NestedScrollingPare
     int closeScrollDistance = -1;
     Scroller scroller;
     boolean finished = false;
+    int maximumVelocity;
 
     public AppDetailLayout(Context context) {
         super(context);
@@ -63,6 +65,7 @@ public class AppDetailLayout extends LinearLayout implements NestedScrollingPare
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        maximumVelocity = ViewConfiguration.get(getContext()).getScaledMinimumFlingVelocity();
         topFrameLayout = findViewById(R.id.topFrameLayout);
         appCoverIv = (ImageView) findViewById(R.id.appCoverIv);
         appLogo = (ImageView) findViewById(R.id.appLogo);
